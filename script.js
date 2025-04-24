@@ -5,19 +5,24 @@ const W = canvas.width;
 const H = canvas.height;
 
 // Bird properties
+// Bird properties
 let bird = {
   x: 50,
-  y: 150,
+  // Start in middle of canvas
+  y: H / 2,
   radius: 12,
-  gravity: 0.4,
-  lift: -14,
+  // Reduced gravity for slower fall
+  gravity: 0.3,
+  // Increased lift for stronger, but still smooth flap
+  lift: -12,
   velocity: 0
 };
 
 // Pipes array
 let pipes = [];
 const pipeWidth = 40;
-const gap = 150;
+// Increased gap for easier passage
+const gap = 300;
 let frameCount = 0;
 let score = 0;
 let highScore = 0;
@@ -37,7 +42,7 @@ canvas.addEventListener('click', () => {
 
 // Reset game state
 function resetGame() {
-  bird.y = 150;
+  bird.y = H / 2;
   bird.velocity = 0;
   pipes = [];
   frameCount = 0;
@@ -52,15 +57,16 @@ function loop() {
   ctx.fillStyle = '#70c5ce';
   ctx.fillRect(0, 0, W, H);
 
-  // Add new pipes
-  if (frameCount % 100 === 0) {
+  // Add new pipes (spawn less frequently for more space)
+  if (frameCount % 150 === 0) {
     const topHeight = Math.random() * (H - gap - 100) + 20;
     pipes.push({ x: W, top: topHeight, bottom: topHeight + gap, passed: false });
   }
 
   // Draw and update pipes
   pipes.forEach((p, i) => {
-    p.x -= 1.5;
+    // Slower pipe movement for easier play
+    p.x -= 1.0;
     ctx.fillStyle = '#228B22';
     ctx.fillRect(p.x, 0, pipeWidth, p.top);
     ctx.fillRect(p.x, p.bottom, pipeWidth, H - p.bottom);
