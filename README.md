@@ -86,4 +86,3 @@ python -m http.server 8000
 
 ---
 
-> Built with ❤️ by [eburakelevli](https://github.com/eburakelevli)
