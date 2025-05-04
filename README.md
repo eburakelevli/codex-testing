@@ -4,7 +4,7 @@ A simple and addictive Flappy Bird clone built with HTML5 Canvas and vanilla Jav
 
 <p align="center">
   <img src="https://img.shields.io/badge/version-1.0.0-blue" alt="Version">
-  <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License"></a>
 </p>
 
 ## Table of Contents
@@ -82,7 +82,7 @@ python -m http.server 8000
 
 ## License
 
-> This project is licensed under the MIT License. See the [MIT License](https://opensource.org/licenses/MIT) for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
